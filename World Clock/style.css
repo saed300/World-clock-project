@@ -1,0 +1,109 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+  font-family: 'Lexend Peta', sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 50px;
+}
+
+.Barcelona, .London, .Tokyo, .Dubai, .Singapore, .Hargeisa {
+  font-size: 20px;
+}
+
+.information {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 7px;
+}
+
+/* Positioning the clock numbers */
+
+body {
+  background-image: linear-gradient(to right,#DEF4FE ,#318EAB);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: auto;
+}
+
+.clock {
+  width: 150px;
+  height: 150px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  border: 2px solid black;
+  position: relative;
+}
+
+.clock .number {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  --rotation: 0;
+  transform: rotate(var(--rotation));
+  font-size: 11px;
+}
+
+.clock .number1 {--rotation: 30deg;}
+.clock .number2 {--rotation: 60deg;}
+.clock .number3 {--rotation: 90deg;}
+.clock .number4 {--rotation: 120deg;}
+.clock .number5 {--rotation: 150deg;}
+.clock .number6 {--rotation: 180deg;}
+.clock .number7 {--rotation: 210deg;}
+.clock .number8 {--rotation: 240deg;}
+.clock .number9 {--rotation: 270deg;}
+.clock .number10 {--rotation: 300deg;}
+.clock .number11 {--rotation: 330deg;}
+
+/* Clock hands */
+
+.clock .hand {
+  --rotation: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform-origin: bottom;
+  z-index: 10;
+  background-color: black;
+  border: 1px solid white;
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+
+.clock::after {
+  content: '';
+  position: absolute;
+  background-color: black;
+  z-index: 11;
+  width: 7px;
+  height: 7px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.clock .hand.second {
+  width: 3px;
+  height: 45%;
+  background-color: tomato;
+}
+
+.clock .hand.minute {
+  width: 4.5px;
+  height: 40%;
+  background-color: black;
+}
+
+.clock .hand.hour {
+  width: 7px;
+  height: 34%;
+  background-color: black;
+}
